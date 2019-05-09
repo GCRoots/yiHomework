@@ -17,7 +17,7 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
 
     Scanner scan = new Scanner(System.in);
 
-    public static ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    ChannelGroup channels=Groups.channels;
     private ChannelHandlerContext ctx;
     private String s;
 
@@ -31,14 +31,14 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
         this.ctx = ctx;
         this.s = s;
         Channel incoming = ctx.channel();
-        System.out.println("[" + incoming.remoteAddress() + "]" +s);
+        System.out.println("[" + incoming.remoteAddress() + "]" + s);
 
         for (Channel channel : channels) {
             if (channel != incoming) {
                 channel.writeAndFlush("[" + incoming.remoteAddress() + "]:" + s);
             } else {
-                if (s.equals("quit")||s.equals("exit")){
-                    channel.writeAndFlush("[Server]:您已掉线" );
+                if (s.equals("quit") || s.equals("exit")) {
+                    channel.writeAndFlush("[Server]:您已掉线");
                     ctx.close();
                 }
                 channel.writeAndFlush("[you]:" + s);
@@ -88,7 +88,5 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
         System.out.println("SimpleChatClient:" + incoming.remoteAddress() + "掉线");
         System.out.println("客户端与服务端连接关闭");
     }
-
-
 
 }
