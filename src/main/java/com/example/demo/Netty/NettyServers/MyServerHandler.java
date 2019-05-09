@@ -15,11 +15,16 @@ import java.util.UUID;
 
 public class MyServerHandler extends SimpleChannelInboundHandler<String> {
 
-    Scanner scan = new Scanner(System.in);
 
     ChannelGroup channels=Groups.channels;
     private ChannelHandlerContext ctx;
     private String s;
+
+//    @Override
+//    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+//        System.out.println(ctx);
+//    }
+
 
 
     /**
