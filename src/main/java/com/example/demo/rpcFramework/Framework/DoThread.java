@@ -32,11 +32,13 @@ public class DoThread extends Thread{
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(socket.getInputStream()));
             String line = br.readLine();
+//            line=
             String str[]=line.split("\\|");
             String classname=str[0];
             String methodname=str[1];
             String res="";
             Method[] m = doSomethingInit.getClass().getDeclaredMethods();
+//            方法名
             for (int i = 0; i < m.length; i++) {
                 String name = m[i].getName();
                 if (name.equals(methodname)) {
