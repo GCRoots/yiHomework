@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class MyClientHandler extends SimpleChannelInboundHandler<String> {
 
-    Scanner scan = new Scanner(System.in);
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -25,9 +24,8 @@ public class MyClientHandler extends SimpleChannelInboundHandler<String> {
     }
 
 
-
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, String s) throws Exception{
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, String s) throws Exception {
         System.out.println(s);
 
     }

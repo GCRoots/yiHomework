@@ -18,7 +18,7 @@ public class PServer1 {
 //        InetSocketAddress isa = new InetSocketAddress("0.0.0.0", 30000);
 //        ss.bind(isa);
 
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // 采用循环不断接受来自客户端的请求
         while (true) {
@@ -26,8 +26,8 @@ public class PServer1 {
             System.out.println("++++++++++");
             Socket s = ss.accept();
 
-            int clientName=s.getPort();
-            System.out.println("欢迎连接，"+clientName+"!!!!!!");
+            int clientName = s.getPort();
+            System.out.println("欢迎连接，" + clientName + "!!!!!!");
 
             // 将Socket对应的输出流包装成PrintStream
             PrintStream ps = new PrintStream(s.getOutputStream());

@@ -12,9 +12,9 @@ import io.netty.util.CharsetUtil;
 public class MyClientInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
-        ChannelPipeline pipeline=socketChannel.pipeline();
+        ChannelPipeline pipeline = socketChannel.pipeline();
         pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,
-                0,4,0,4));
+                0, 4, 0, 4));
         pipeline.addLast(new LengthFieldPrepender(4));
         pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
         pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));

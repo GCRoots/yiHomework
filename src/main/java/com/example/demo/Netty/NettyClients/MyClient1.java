@@ -1,5 +1,9 @@
 package com.example.demo.Netty.NettyClients;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.sun.javafx.collections.MappingChange;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -14,30 +18,38 @@ import java.io.InputStreamReader;
 
 
 public class MyClient1 {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         new MyClient1("localhost", 8089).run();
     }
 
     private final String host;
     private final int port;
 
-    public MyClient1(String host, int port){
+    public MyClient1(String host, int port) {
         this.host = host;
         this.port = port;
     }
 
-    public void run() throws Exception{
+    public void run() throws Exception {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
-            Bootstrap bootstrap  = new Bootstrap()
+            Bootstrap bootstrap = new Bootstrap()
                     .group(group)
                     .channel(NioSocketChannel.class)
                     .handler(new MyClientInitializer());
             Channel channel = bootstrap.connect(host, port).sync().channel();
 
+
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            while(true){
-                channel.writeAndFlush(in.readLine());
+            String s="{\"aa\":\"cc\"}";
+            JSON json=JSON.parseObject(s);
+            while (true) {
+                String s1=in.readLine();
+                if (s1=="a"){
+                    channel.writeAndFlush("ansjcndjshrgfkjg");
+                }else {
+                    channel.writeAndFlush(s);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

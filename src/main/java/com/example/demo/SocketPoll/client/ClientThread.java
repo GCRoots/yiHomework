@@ -24,7 +24,7 @@ public class ClientThread implements Runnable {
             // 不断读取Socket输入流中的内容，并将这些内容打印输出
             while ((content = br.readLine()) != null) {
                 System.out.println(content);
-        }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -18,20 +18,20 @@ import java.nio.charset.Charset;
 
 public class MyServer {
     public static void main(String[] args) throws InterruptedException, IOException {
-        EventLoopGroup bossGroup=new NioEventLoopGroup();
-        EventLoopGroup workerGroup=new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            ServerBootstrap serverBootstrap=new ServerBootstrap()
-                    .group(bossGroup,workerGroup)
+            ServerBootstrap serverBootstrap = new ServerBootstrap()
+                    .group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new MyServerInitializer());
-            ChannelFuture channelFuture=serverBootstrap
-                    .bind( 8089).sync();
+            ChannelFuture channelFuture = serverBootstrap
+                    .bind(8089).sync();
             channelFuture.channel().closeFuture().sync();
 
 
-        }finally {
+        } finally {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
             System.out.println("Server 关闭");

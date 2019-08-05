@@ -46,7 +46,7 @@ public class ServerThread implements Runnable {
         // 如果捕捉到异常，表明该Socket对应的客户端已经关闭
         catch (IOException e) {
             // 删除该Socket。
-            System.out.println("删除一个socket："+s.getInetAddress().getHostName());
+            System.out.println("删除一个socket：" + s.getInetAddress().getHostName());
             MyServer.socketList.remove(s);
         }
         return null;

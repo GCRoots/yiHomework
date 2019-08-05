@@ -16,7 +16,7 @@ import java.util.UUID;
 public class MyServerHandler extends SimpleChannelInboundHandler<String> {
 
 
-    ChannelGroup channels=Groups.channels;
+    ChannelGroup channels = Groups.channels;
     private ChannelHandlerContext ctx;
     private String s;
 
@@ -24,7 +24,6 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
 //    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 //        System.out.println(ctx);
 //    }
-
 
 
     /**
@@ -36,6 +35,12 @@ public class MyServerHandler extends SimpleChannelInboundHandler<String> {
         this.ctx = ctx;
         this.s = s;
         Channel incoming = ctx.channel();
+        System.out.println("ctx.toString():"+ctx.toString());
+        System.out.println("ctx.handler():"+ctx.handler());
+        System.out.println("ctx.name():"+ctx.name());
+        System.out.println("incoming.toString():"+incoming.toString());
+        System.out.println("incoming.pipeline():"+incoming.pipeline());
+        System.out.println(s);
         System.out.println("[" + incoming.remoteAddress() + "]" + s);
 
         for (Channel channel : channels) {

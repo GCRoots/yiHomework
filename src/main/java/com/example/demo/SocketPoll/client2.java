@@ -19,7 +19,7 @@ public class client2 {
                     socket.getOutputStream())));
 
 
-            while (true){
+            while (true) {
                 pw.println("howdy ");
                 pw.flush();
                 String str = br.readLine();

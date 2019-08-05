@@ -1,32 +1,32 @@
 package com.example.demo.seletorProxy;
 
 public class People {
-    private boolean A=false;
-    private boolean B=false;
-    private boolean C=false;
-    private boolean D=false;
-    private boolean E=false;
-    private boolean F=false;
-    private boolean G=false;
-    private boolean H=false;
-    private boolean I=false;
-    private boolean J=false;
-    private boolean K=false;
-    private boolean L=false;
-    private boolean M=false;
-    private boolean N=false;
-    private boolean O=false;
-    private boolean P=false;
-    private boolean Q=false;
-    private boolean R=false;
-    private boolean S=false;
-    private boolean T=false;
-    private boolean U=false;
-    private boolean V=false;
-    private boolean W=false;
-    private boolean X=false;
-    private boolean Y=false;
-    private boolean Z=false;
+    private boolean A = false;
+    private boolean B = false;
+    private boolean C = false;
+    private boolean D = false;
+    private boolean E = false;
+    private boolean F = false;
+    private boolean G = false;
+    private boolean H = false;
+    private boolean I = false;
+    private boolean J = false;
+    private boolean K = false;
+    private boolean L = false;
+    private boolean M = false;
+    private boolean N = false;
+    private boolean O = false;
+    private boolean P = false;
+    private boolean Q = false;
+    private boolean R = false;
+    private boolean S = false;
+    private boolean T = false;
+    private boolean U = false;
+    private boolean V = false;
+    private boolean W = false;
+    private boolean X = false;
+    private boolean Y = false;
+    private boolean Z = false;
 
     public boolean isA() {
         return A;
